@@ -12,6 +12,7 @@ function orderCake() {
     }
 }
 
+// action (creator function)
 function restockCake(qty = 1) {
     return {
         type: CAKE_RESTOCKED,
@@ -23,7 +24,7 @@ const initialState = {
     numOfCakes: 10,
 }
 
-// reducer
+// reducer (previousStae, action) => newState
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'CAKE_ORDERED':
