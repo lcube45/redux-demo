@@ -3,7 +3,7 @@ const createStore = redux.createStore
 
 const CAKE_ORDERED = 'CAKE_ORDERED'
 
-// action
+// action (creator function)
 function orderCake() {
     return {
         type: CAKE_ORDERED,
@@ -42,4 +42,5 @@ store.dispatch(orderCake())
 store.dispatch(orderCake())
 store.dispatch(orderCake())
 
+// unbsubscribe to changes
 unbsubscribe()
