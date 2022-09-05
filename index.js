@@ -1,5 +1,6 @@
 const redux = require('redux')
 const createStore = redux.createStore
+const bindActionCreators = redux.bindActionCreators
 
 const CAKE_ORDERED = 'CAKE_ORDERED'
 const CAKE_RESTOCKED = 'CAKE_RESTOCKED'
@@ -49,13 +50,13 @@ const unbsubscribe = store.subscribe(() =>
     console.log('Update state', store.getState())
 )
 
-// dispatch action
-store.dispatch(orderCake())
-store.dispatch(orderCake())
-store.dispatch(orderCake())
+// bind actions
+const actions = bindActionCreators({orderCake, restockCake}, store.dispatch)
 
-// dispatch new action
-store.dispatch(restockCake(3))
+actions.orderCake()
+actions.orderCake()
+actions.orderCake()
+actions.restockCake()
 
 // unbsubscribe to changes
 unbsubscribe()
